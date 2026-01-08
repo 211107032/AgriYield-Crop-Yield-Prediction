@@ -12,7 +12,7 @@ for /f "tokens=5" %%a in ('netstat -aon ^| find ":8000" ^| find "LISTENING"') do
 echo    - Port 8000 is free.
 
 echo [1/4] Checking Backend Configuration...
-cd backend
+cd /d "%~dp0backend"
 if not exist "venv" (
     echo    - Creating Python virtual environment...
     python -m venv venv
@@ -28,7 +28,7 @@ start "AgriAI Backend" cmd /k "title AgriAI Backend & python main.py"
 echo    - Backend server starting in new window...
 echo.
 
-cd ..\frontend
+cd /d "%~dp0frontend"
 
 echo [3/4] Checking Frontend Configuration...
 if not exist "node_modules" (

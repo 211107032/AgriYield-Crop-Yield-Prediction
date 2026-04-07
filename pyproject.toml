@@ -1,0 +1,6 @@
+[project]
+name = "agri-yield-api"
+version = "0.1.0"
+description = "AgriYield AI Serverless Functions"
+requires-python = ">=3.9"
+dependencies = []

@@ -1,11 +1,11 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import random
-import numpy as np
 
 # ============================================================
 # CROP YIELD PREDICTION — Vercel Serverless Function
 # Combines: ml_engine.py + weather_service.py + llm_service.py
+# Uses only stdlib (no numpy) for fast cold starts on Vercel
 # ============================================================
 
 # Scientific Crop Data (Ideal Conditions)
@@ -76,7 +76,7 @@ def predict_yield(features):
         actual_temp = float(features.get("temperature_c", ideals["ideal_temp"]))
         actual_fert = float(features.get("fertilizer", ideals["ideal_fert"]))
         actual_pest = float(features.get("pesticide", ideals["ideal_pest"]))
-    except:
+    except Exception:
         actual_rain = ideals["ideal_rain"]
         actual_temp = ideals["ideal_temp"]
         actual_fert = ideals["ideal_fert"]
@@ -103,7 +103,8 @@ def predict_yield(features):
     yield_range = ideals["max_yield"] - ideals["base_yield"]
     final_yield = ideals["base_yield"] + (yield_range * efficiency)
 
-    noise = final_yield * (np.random.uniform(-0.05, 0.05))
+    # Use stdlib random instead of numpy for Vercel compatibility
+    noise = final_yield * random.uniform(-0.05, 0.05)
     final_yield += noise
 
     return {

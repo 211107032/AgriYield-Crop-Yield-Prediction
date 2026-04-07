@@ -1,8 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import random
-import cgi
-import io
 
 # ============================================================
 # DISEASE DETECTION — Vercel Serverless Function

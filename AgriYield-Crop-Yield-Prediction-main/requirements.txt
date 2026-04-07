@@ -1,1 +1,1 @@
-numpy
+# No external dependencies needed - all API functions use Python stdlib only

@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+scikit-learn
+pandas
+numpy
+python-multipart
+# python-dotenv can be added if we use .env later
+opencv-python-headless

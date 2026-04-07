@@ -4,8 +4,8 @@ import LandingPage from './components/LandingPage';
 import YieldForm from './components/YieldForm';
 import DiseaseDetection from './components/DiseaseDetection';
 
-// FORCE CONNECT TO BACKEND
-axios.defaults.baseURL = 'http://127.0.0.1:8000';
+// In production (Vercel), API calls use relative paths routed to serverless functions.
+// In dev, the Vite proxy in vite.config.js handles forwarding to localhost:8000.
 
 function App() {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');

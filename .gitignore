@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+backend/venv/
+venv/
+.env
+
+# Vercel
+.vercel/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Nested duplicate project (not needed)
+AgriYield-Crop-Yield-Prediction-main/
+
+# Unwanted root files (local dev only, not for deployment)
+force_fix.bat
+run_project.bat
+script.js
+style.css
+test_api.py
+verify_backend.py
+verify_calibration.py
+verify_calibration_v2.py
+verify_crops.py
+seasonal_crops_guide.md
